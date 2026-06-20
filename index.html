@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Facturación - Soft Pink Edition</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-wrapper">
+        <section class="no-print admin-panel">
+            <h2>Panel de Configuración</h2>
+            <div class="input-row">
+                <input type="text" id="inNombre" placeholder="Nombre del Cliente">
+                <input type="text" id="inRUC" placeholder="RUC o CI">
+                <input type="date" id="inFecha">
+            </div>
+            <div class="button-row">
+                <button onclick="agregarFila()" class="btn-primary">+ Nuevo Item</button>
+                <button onclick="window.print()" class="btn-secondary">🖨️ Imprimir Factura</button>
+            </div>
+        </section>
+
+        <div id="factura" class="invoice-container">
+            <header class="invoice-header">
+                <div class="company-brand">
+                    <h1>PINK SOLUTIONS S.A.</h1>
+                    <p>Creatividad & Tecnología</p>
+                    <p>Asunción, Paraguay</p>
+                </div>
+                <div class="invoice-info">
+                    <h2 class="invoice-title">FACTURA</h2>
+                    <p><strong>N°:</strong> <span id="numFactura"></span></p>
+                    <p><strong>Fecha:</strong> <span id="outFecha">--/--/----</span></p>
+                </div>
+            </header>
+
+            <section class="client-details">
+                <p><strong>Señor(es):</strong> <span id="outNombre">____________________</span></p>
+                <p><strong>RUC/CI:</strong> <span id="outRUC">____________________</span></p>
+            </section>
+
+            <table id="tablaFactura">
+                <thead>
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Cant.</th>
+                        <th>Precio Unitario (Gs.)</th>
+                        <th>Subtotal (Gs.)</th>
+                        <th class="no-print">Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoTabla">
+                    </tbody>
+            </table>
+
+            <footer class="invoice-footer">
+                <div class="totals-box">
+                    <div class="total-line"><span>Subtotal:</span> <span id="subtotalGral">0</span></div>
+                    <div class="total-line"><span>IVA (10%):</span> <span id="iva">0</span></div>
+                    <div class="total-line final"><span>TOTAL GENERAL:</span> <span id="total">0</span></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
